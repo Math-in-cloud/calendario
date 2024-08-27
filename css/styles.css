@@ -1,0 +1,222 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #ffffffd7; 
+}
+
+#containerCalendario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff1c;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(18, 18, 19, 0.027);
+    overflow: hidden;
+    padding: 20px;
+    width: 800px;
+    max-width: 800px;
+}
+
+#calendario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px; 
+    overflow: hidden;
+    position: relative;
+    transition: opacity 0.3s ease-in-out;
+}
+
+#navegacaoMes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+.arrow {
+    font-size: 30px;
+    cursor: pointer;
+    margin: 0 20px;
+    color: #0446aad7;
+    transition: color 0.3s ease;
+    display: inline-block;
+    width: 40px; 
+    text-align: center;
+}
+
+.arrow:hover {
+    color: #0f0f0f; 
+}
+
+#nomeMes {
+    font-size: 24px;
+    margin: 0;
+    padding: 10px;
+    color: #221f1f;
+}
+
+#seletorAno {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+#seletorAno label {
+    font-size: 18px;
+    margin-right: 10px;
+    color: #221f1f; 
+}
+
+#seletorAno select {
+    font-size: 18px;
+    padding: 5px;
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    background-color: #ffffff; 
+    color: #221f1f; 
+}
+
+#tabelaCalendario {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    height: 300px; 
+    overflow: auto;
+}
+
+#tabelaCalendario th, #tabelaCalendario td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#tabelaCalendario th {
+    background-color: #6d96c2; 
+    color: #ffffff;
+}
+
+#tabelaCalendario td {
+    background-color: #ffffffec;
+}
+
+td.feriado {
+    background-color: #dbc500; 
+    color: #000;
+    position: relative;
+}
+
+td.feriado::after {
+    content: 'Feriado!';
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff9800;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .arrow {
+        font-size: 24px;
+    }
+
+    #nomeMes {
+        font-size: 20px;
+    }
+
+    #tabelaCalendario th, #tabelaCalendario td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    #seletorAno label, #seletorAno select {
+        font-size: 16px;
+    }
+}
+
+#feriados {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #6a86a7;  
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    border: 1px solid #ddd; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+#feriados h3 {
+    position: relative;
+    bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: rgb(255, 255, 255);
+}
+
+#feriados ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+#feriados li {
+    font-size: 14px; 
+    margin: 8px 0;
+    background-color: #ffffff; 
+    padding: 10px 15px; 
+    border-radius: 4px; 
+    border: 1px solid #e0e0e0; 
+    color: #333; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+#feriados li:hover {
+    background-color: #e0e0e0; 
+    transform: translateY(-2px); 
+}
+
+#feriados p {
+    font-size: 14px; 
+    color: #2c2a2a; 
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #333333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+td.feriado:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+td.feriado {
+    position: relative;
+}
+
+@media (max-width: 600px) {
+    .tooltip {
+        font-size: 12px;
+    }
+}
